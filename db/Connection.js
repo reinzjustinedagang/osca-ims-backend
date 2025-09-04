@@ -2,11 +2,11 @@ const mysql = require("mysql2");
 require("dotenv").config();
 
 const db = mysql.createConnection({
-  host: process.env.MYSQLHOST,
-  user: process.env.MYSQLUSER,
-  password: process.env.MYSQLPASSWORD || "",
-  port: process.env.MYSQLPORT,
-  database: process.env.MYSQLDATABASE,
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD || "",
+  port: process.env.DB_PORT,
+  database: process.env.DB_DATABASE,
 });
 
 db.connect((err) => {
@@ -733,7 +733,7 @@ db.query(
 
 db.query(
   `
-  CREATE TABLE IF NOT EXISTS system (
+  CREATE TABLE IF NOT EXISTS \`system\` (
     id INT PRIMARY KEY AUTO_INCREMENT,
     system_name VARCHAR(255) NOT NULL,
     municipality VARCHAR(255) NOT NULL,

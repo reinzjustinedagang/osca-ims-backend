@@ -111,7 +111,11 @@ app.get("/api/test-session", (req, res) => {
   res.send(`Session views: ${req.session.views}`);
 });
 
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", time: new Date() });
+});
+
 // Start the server
-app.listen(port, "::", () => {
-  console.log(`Server listening on [::]${port}`);
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
 });
